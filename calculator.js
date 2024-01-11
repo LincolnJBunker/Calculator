@@ -24,7 +24,17 @@ function mod(num1, num2){
 }
 
 function sqrt(num1){
+  console.log("insqrt")
   return num1 ** 0.5 
+}
+function factorialize(num1) {
+  let total = num1;
+  if (num1 === 0 || num1 === 1) return 1;
+  while (num1 > 1) {
+    num1--
+    total = total * num1
+  }
+  return total;
 }
 
 function calculate(expression) {
@@ -44,16 +54,19 @@ function calculate(expression) {
     num2 = Number(tokens[2])
     if(Number.isNaN(num1) || Number.isNaN(num2)){
       alert("Hey, that isn't a number")
-     return ('invalid expression');
+     return;
     }
   } 
   else if (tokens.length === 2){
     op = tokens[0];
-    num1 = Number(token[1])
+    num1 = Number(tokens[1])
     if(Number.isNaN(num1)){
       alert("Hey, that isn't a number")
       return;
-    }
+    } ;
+    } else {
+      alert("Invalid expression! Try again!")
+      return
    }
 
   if (op === "+"){
@@ -77,8 +90,10 @@ function calculate(expression) {
   if(op === "sqrt"){
     return sqrt(num1)
   }
-
-  
+  if(op === "!") {
+    return factorialize(num1)
+  }
+alert('Unrecognized operator');
 
 }
 
